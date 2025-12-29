@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRA PRESET V2</title>
+<title>RED CYBER PRESET</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -188,7 +188,7 @@ fetch(DATA_URL)
     card.className="card";
 
     card.innerHTML=`
-      <video src="${p.video||''}"></video>
+      <video src="${p.video||'https://raw.githubusercontent.com/MEYUD4/Preset/main/pra.json'}"></video>
 
       <div class="play-btn"><i class="fa-solid fa-play"></i></div>
 
@@ -220,15 +220,16 @@ fetch(DATA_URL)
     const video=card.querySelector("video");
     const playBtn=card.querySelector(".play-btn");
 
-    const togglePlay=()=>{
-      if(video.paused){
-        video.play();
-        playBtn.style.display="none";
-      }else{
-        video.pause();
-        playBtn.style.display="flex";
-      }
-    };
+    const togglePlay = () => {
+  if (video.paused) {
+    video.muted = false;   // BUKA SUARA SETELAH KLIK
+    video.play();
+    playBtn.style.display = "none";
+  } else {
+    video.pause();
+    playBtn.style.display = "flex";
+  }
+};
 
     playBtn.onclick=togglePlay;
     video.onclick=togglePlay;
